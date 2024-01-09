@@ -12,9 +12,21 @@ const promptSchema = new mongoose.Schema({
         required : true,
         lowercase : true,
      },
+     dis : {
+      type : String,
+      lowercase : true,
+      required : true,
+     },
      createdBy : {
         type : mongoose.Types.ObjectId,
      },
+     
+     likes : {
+      type : Number,
+     },
+     topics : {
+      type : Array,
+     }
 
 }, {timestamps : true});
 
@@ -29,7 +41,19 @@ const loginSchema = new mongoose.Schema({
       pass : {
         type : String,
         required: true,
-      }
+      },
+      userName : {
+         type : String,
+         unique : true,
+         lowercase : true,
+      },
+      followers : {
+         type : Array,
+      },
+      following : {
+         type : Array,
+      },
+
 
 }, { timestamps : true });
 

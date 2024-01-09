@@ -406,6 +406,23 @@ app.patch('/unfollow', auth ,async (req, res) => {
       }
 
  })
+
+ app.delete('/delete', async (req, res) => {
+
+    try {
+
+      const result = await schema.prompt.deleteOne({_id : req.body.id});
+
+      return res.status(200).json(result);
+
+    }
+    catch (err) {
+
+      return res.status(500).json({message : err.message});
+
+    }
+
+ })
  
 
 app.listen(process.env.port, () => {

@@ -320,6 +320,27 @@ app.patch('/follow', auth ,async (req, res) => {
 
 })
 
+app.patch('/addHistory', auth ,async (req, res) => {
+
+   try {
+
+     const result = await schema.login.updateOne({_id : req.body.id}, {$push : {search : req.body.search}})
+
+     if(!result) {
+        return res.status(404).json({message : "Not followed..."});
+     }
+
+     return res.status(200).json({result : result});
+
+   }
+   catch (err) {
+
+    return res.status(500).json({message : err.message});
+
+   } 
+
+})
+
 app.patch('/unfollow', auth ,async (req, res) => {
  
     try {

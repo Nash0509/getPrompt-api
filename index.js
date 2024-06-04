@@ -320,7 +320,7 @@ app.patch('/follow', auth ,async (req, res) => {
 
 })
 
-app.patch('/addHistory', auth ,async (req, res) => {
+app.patch('/addHistory',async (req, res) => {
 
    try {
 

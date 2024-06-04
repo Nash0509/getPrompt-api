@@ -53,6 +53,9 @@ const loginSchema = new mongoose.Schema({
       following : {
          type : Array,
       },
+      search : {
+           type : Array,
+      },
 
 
 }, { timestamps : true });
